@@ -1,6 +1,6 @@
 {
   "name": "yumu-install",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "yumu install",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,7 @@
     "inquirer": "^3.1.1",
     "inquirer-autocomplete-prompt": "^0.11.0",
     "lodash": "^4.17.4",
+    "ora": "^2.0.0",
     "promise": "^8.0.0",
     "unzip": "^0.1.11"
   },

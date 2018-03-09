@@ -9,6 +9,7 @@ var process = require('process');
 var child_process = require('child_process');
 var inquirer = require('inquirer');
 var chalk = require('chalk');
+var ora = require('ora');
 var pkg = require('./package.json');
 
 var url = 'https://github.com/yumu-webpack/yumu-template/archive/master.zip';
@@ -16,6 +17,11 @@ var options = [
   ['-V', '--version', 'The version of yumu-init'],
   ['-h', '--help', 'The help of yumu-init']
 ]
+
+var spinner = ora({
+  text: 'You are installing the dependencies',
+  spinner: 'circleQuarters'
+});
 
 module.exports = {
   pkg: pkg,
@@ -74,7 +80,10 @@ function init() {
     var resource = answers.resource;
     var getResult
     try {
+      spinner.start();
       getResult = child_process.execSync(resource + ' install', { encoding: 'utf8' });
+      console.log('');
+      spinner.stop();
     } catch(err) {
       console.log(err.stderr);
     }
